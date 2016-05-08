@@ -104,3 +104,133 @@ OK
 //截取某一key值 包括开始位置   结束位置 （下标0开始）
 127.0.0.1:6379> substr addr 6 13
 "xianyang"
+
+
+*****************LIST*****************************
+127.0.0.1:6379> select 1
+OK
+//在key对应list的头部添加字符串元素,返回元素个数
+127.0.0.1:6379[1]> lpush login air1
+(integer) 1
+127.0.0.1:6379[1]> lpush login air2
+(integer) 2
+127.0.0.1:6379[1]> lpush login air3
+(integer) 3
+
+//查看key指定范围的元素
+127.0.0.1:6379[1]> lrange login 0 2
+1) "air3"
+2) "air2"
+3) "air1"
+
+//返回list长度
+127.0.0.1:6379[1]> llen today
+(integer) 3
+
+
+//从list尾部删除元素，返回删除key值
+127.0.0.1:6379[1]> rpop login
+"air1"
+
+//从尾部插入一元素，返回list长度
+127.0.0.1:6379[1]> rpush login air4
+(integer) 3
+
+//从list头部删除元素，返回删除key值
+127.0.0.1:6379[1]> lpop login
+"air3"
+
+//ltrim key start end  从start到end截取key值
+127.0.0.1:6379[1]> lrange today 0 5
+1) "air6"
+2) "air5"
+3) "air4"
+4) "air3"
+5) "air2"
+6) "air1"
+127.0.0.1:6379[1]> ltrim today 0 4
+OK
+127.0.0.1:6379[1]> lrange today 0 5
+1) "air6"
+2) "air5"
+3) "air4"
+4) "air3"
+5) "air2"
+
+*****************set 集合*************************
+set元素最大可以包含2的32次方减1个元素。
+注意：每个集合里面的各个元素不能重复
+
+添加一个string元素到key对应的set集合中，成功返回1；
+如果元素已经存在集合中，返回0。
+127.0.0.1:6379[1]> sadd airFir air1
+(integer) 1
+127.0.0.1:6379[1]> sadd airFir air2
+(integer) 1
+127.0.0.1:6379[1]> sadd airFir air3
+(integer) 1
+127.0.0.1:6379[1]> sadd airFir air4
+(integer) 1
+
+127.0.0.1:6379[1]> sadd wzbFir air3
+(integer) 1
+127.0.0.1:6379[1]> sadd wzbFir air4
+(integer) 1
+127.0.0.1:6379[1]> sadd wzbFir air5
+(integer) 1
+
+可对两个以上集合去交集，取集合wzbFir和airFir的交集
+127.0.0.1:6379[1]> sinter wzbFir airFir
+1) "air4"
+2) "air3"
+
+可对两个以上集合去并集，取集合wzbFir和airFir的并集
+127.0.0.1:6379[1]> sunion wzbFir airFir
+1) "air3"
+2) "air5"
+3) "air1"
+4) "air4"
+5) "air2"
+
+两个集合互取差集有不同
+127.0.0.1:6379[1]> sdiff wzbFir airFir
+1) "air5"
+127.0.0.1:6379[1]> sdiff airFir wzbFir
+1) "air1"
+2) "air2"
+
+返回key对应的所有元素，结果无序
+127.0.0.1:6379[1]> smembers wzbFir
+1) "air4"
+2) "air5"
+3) "air3"
+
+判断某个value是不是集合key里面的元素
+127.0.0.1:6379[1]> sismember wzbFir air4
+(integer) 1
+127.0.0.1:6379[1]> sismember wzbFir air2
+(integer) 0
+
+返回集合中元素的个数
+127.0.0.1:6379[1]> scard wzbFir
+(integer) 3
+
+将集合airFir中的元素移动到集合wzbFir，
+wzbFir存在被元素移动的元素也会移动成功，airFir失去被移动的元素
+127.0.0.1:6379[1]> smove airFir wzbFir air1
+(integer) 1
+127.0.0.1:6379[1]> smove airFir wzbFir air3
+(integer) 1
+
+srem是从集合中删除某元素
+127.0.0.1:6379[1]> smembers wzbFir
+1) "air1"
+2) "air4"
+3) "air5"
+4) "air3"
+127.0.0.1:6379[1]> srem wzbFir air1
+(integer) 1
+127.0.0.1:6379[1]> smembers wzbFir
+1) "air4"
+2) "air5"
+3) "air3"
