@@ -32,7 +32,7 @@ function httpdown($url, $file="", $timeout=60)
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);               // 设置请求的url
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);       // 设置超时时间
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);    // true 返回的内容作为变量储存，而不是直接输出  false 直接输出
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    // true 返回的内容作为变量储存，而不是直接输出  false 直接输出
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);   // 跳过证书检查
 //        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);  // 从证书中检查SSL加密算法是否存在
         $temp = curl_exec($ch);
