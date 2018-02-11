@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将时间戳转换为日期格式</title>
+</head>
+<body>
+<script>
+    function timestampToDate(timestamp, has_time, d_sep){
+        var time_stamp = timestamp.toString().length == 10 ? timestamp * 1000 : timestamp ;
+        var with_time = has_time === true ;
+        var date_sep = d_sep ? d_sep : '-' ;
+
+        var date = new Date(parseInt(time_stamp)) ;
+
+        Y = date.getFullYear();
+        m = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1 ;
+        d = date.getDate() < 10 ? '0' +  date.getDate() : date.getDate() ;
+        H = date.getHours() < 10 ? '0' + date.getHours() : date.getHours() ;
+        i = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes() ;
+        s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds() ;
+
+        if(with_time){
+            return Y + date_sep + m + date_sep + d +' '+ H + ':' + i + ':' + s
+        }else {
+            return Y + date_sep + m + date_sep + d
+        }
+    }
+
+
+
+
+    console.log(timestampToDate(1588830834513));
+    console.log(timestampToDate(1518330813,true));
+    console.log(timestampToDate(1518330813,true,'/'));
+</script>
+</body>
+</html>
