@@ -4,12 +4,10 @@
  * User: sdqhw
  */
 
-//测试用例
-var_dump(curl_get("https://sslapi.hitokoto.cn/?c=f&encode=text"));
 
 /**
- * @param $url 请求的地址
- * @param int $timeout 超时的时间
+ * @param string    $url 请求的地址
+ * @param int       $timeout 超时的时间
  * @return mixed
  */
 if(!function_exists('curl_get')){
@@ -28,9 +26,9 @@ if(!function_exists('curl_get')){
 }
 
 /**
- * @param $url 请求的地址
- * @param $data 请求的数据 array
- * @param int $timeout 超时的时间
+ * @param string    $url 请求的地址
+ * @param array     $data 请求的数据
+ * @param int       $timeout 超时的时间
  * @return mixed
  */
 if(!function_exists('curl_post')){
@@ -60,3 +58,7 @@ if(!function_exists('curl_post')){
         return $tmpInfo;                                // 返回数据
     }
 }
+
+
+//测试用例
+var_dump(curl_get("https://sslapi.hitokoto.cn/?c=f&encode=text"));

@@ -6,10 +6,10 @@
 
 /**
  * 默认写入 2 M 的文件
- * @param $all_path 存放文件全路径
- * @param $str 要写入的字符串
- * @param $line 默认10行才写入文件
- * @param $file_size 默认 2m 才重写文件
+ * @param string    $all_path 存放文件路径
+ * @param string    $str 要写入的字符串
+ * @param int       $line 默认10行才写入文件
+ * @param int       $file_size 默认 2m 才重写文件
  */
 function wfile($all_path, $msg, $line = 10, $file_size = 2097152){
 

@@ -5,18 +5,10 @@
  */
 
 
-// 测试用例
-// https://www.baidu.com/img/bd_logo1.png
-// http://cn.ynhdkc.com/Uploads/doctor_qcode/20171124125822932.png
-// http://dytapi.ynhdkc.com/Uploads/acc_file/201801/dyt_yb_20180131.txt
-
-//var_dump(httpdown("https://www.baidu.com/img/bd_logo1.png"));
-var_dump(httpdown("https://www.baidu.com/img/bd_logo1.png","E:/qr_code.png"));
-
 /**
- * @param $url 请求的资源地址
- * @param string $file 可以为空|直接写全路径及文件名
- * @param int $timeout 超时时间
+ * @param string    $url 请求的资源地址
+ * @param string    $file 可以为空|直接写全路径及文件名
+ * @param int       $timeout 超时时间
  * @return bool|mixed|string
  */
 
@@ -58,3 +50,13 @@ function httpdown($url, $file="", $timeout=60)
         }
     }
 }
+
+
+
+// 测试用例
+// https://www.baidu.com/img/bd_logo1.png
+// http://cn.ynhdkc.com/Uploads/doctor_qcode/20171124125822932.png
+// http://dytapi.ynhdkc.com/Uploads/acc_file/201801/dyt_yb_20180131.txt
+
+//var_dump(httpdown("https://www.baidu.com/img/bd_logo1.png"));
+var_dump(httpdown("https://www.baidu.com/img/bd_logo1.png","E:/qr_code.png"));
