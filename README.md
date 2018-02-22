@@ -24,6 +24,12 @@ auther:**AIRVIP**
 |-- id_check.php  验证身份证合法性
 ```
 
+**html_js**
+```
+|-- js_validate.html    js常用验证
+|-- to_date.html    将时间戳转换为日期格式
+```
+
 
 
 
