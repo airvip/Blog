@@ -30,6 +30,11 @@ auther:**AIRVIP**
 |-- to_date.html    将时间戳转换为日期格式
 ```
 
+**html_css**
+```
+|-- oneline.html    单行文本溢出显示省略号
+```
+
 
 
 
