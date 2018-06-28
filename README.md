@@ -4,7 +4,7 @@ auther:**airvip**
 
 作者: 阿尔维奇
 
-[博客地址](http://diff.blog.wang)
+[博客地址](http://blog.diff.wang)
 
 
 存储一些开发中经常用的代码片段
