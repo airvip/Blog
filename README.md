@@ -25,6 +25,7 @@ auther:**airvip**
 |-- log_fwrite.php  自定义到达n行写日志
 |-- id_check.php  验证身份证合法性
 |-- make_zip.php 生成zip打包文件并下载
+|-- phone_type.php 获取手机机型
 ```
 
 **html_js**
