@@ -1,6 +1,8 @@
 # 开发中常用的代码段及方法
 
-auther:**AIRVIP**
+auther:**airvip**
+
+作者: 阿尔维奇
 
 [博客地址](http://diff.blog.wang)
 
