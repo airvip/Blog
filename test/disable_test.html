@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <!--[if lt IE 8]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <title>Test</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../public/bootstrap-3.3.7-dist/css/bootstrap.min.css" >
+    <script src="../public/js/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+    <div id="container">
+        <form action="#">
+            <button id="btn1" class="btn btn-success btn-block">测试</button>
+            <button id="btn2" disabled="disabled" class="btn btn-info btn-block">测试</button>
+
+            <textarea  rows="3"></textarea>
+        </form>
+    </div>
+
+    <script>
+        function disableElement(element, val){
+            document.getElementById(element).disabled=val;
+        }
+
+        disableElement("btn1", true);
+        disableElement("btn2", false);
+
+        $(function () {
+//            $('#btn1').attr("disabled",true);
+//            $('#btn1').attr("disabled","disabled");
+
+
+//            $('#btn2').attr("disabled",false);
+//            $('#btn2').removeAttr("disabled");
+        });
+
+
+    </script>
+
+</body>
+</html>
